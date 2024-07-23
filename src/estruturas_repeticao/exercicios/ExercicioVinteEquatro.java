@@ -2,10 +2,10 @@ package estruturas_repeticao.exercicios;
 
 import javax.swing.JOptionPane;
 
-public class ExercicioVinteEcinco {
+public class ExercicioVinteEquatro {
 	public static void main(String[] args) {
 
-		int funcionarios = 3, servicos = 3, pecas = 0, funMaiorVlr = 0, funMenorVlr = 0;
+		int funcionarios = 2, servicos = 3, pecas = 0, funMaiorVlr = 0, funMenorVlr = 0;
 		double valorTotal = 0, valorFuncionario = 0, valorServico = 0, maiorVlr = 0, menorVlr = 0;
 		String fraseFinal = "Relatório Final!\n";
 
@@ -20,11 +20,10 @@ public class ExercicioVinteEcinco {
 					// Resposta Letra A
 					valorServico += Double
 							.parseDouble(JOptionPane.showInputDialog(String.format("Valor Peça %d", (p + 1))));
-					valorFuncionario += valorServico;
-					valorTotal += valorServico;
 				}
 				// Resposta LETRA C
 				fraseFinal += "Serviço " + (j + 1) + ": R$" + valorServico + "\n";
+				valorFuncionario += valorServico;
 			}
 			// Resposta LETRA B
 			fraseFinal += "Total Funcionário: R$" + valorFuncionario + "\n\n";
@@ -39,8 +38,11 @@ public class ExercicioVinteEcinco {
 				funMenorVlr = i;
 				menorVlr = valorFuncionario;
 			}
+			//Resposta LETRA A
+			valorTotal += valorFuncionario;
 		}
-		fraseFinal += String.format("O funcionário com maior valor foi: %d\nO funcionário com menor valor foi: %d",
+		
+		fraseFinal += String.format("O valor total arrecadado foi de R$%.2f\nO funcionário com maior valor foi: %d\nO funcionário com menor valor foi: %d", valorTotal,
 				(funMaiorVlr + 1), (funMenorVlr + 1));
 		JOptionPane.showMessageDialog(null, fraseFinal);
 	}
