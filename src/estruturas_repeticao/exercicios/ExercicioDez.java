@@ -24,7 +24,7 @@ public class ExercicioDez {
 					generoFeminino++;
 					break;
 				default:
-					frase += "Não definido";
+					frase += "Não definido\n";
 					JOptionPane.showMessageDialog(null, "Genêro indefinido!");
 					break;
 				}
@@ -34,6 +34,6 @@ public class ExercicioDez {
 			}
 
 		} while (op != 2);
-		JOptionPane.showMessageDialog(null, frase);
+		JOptionPane.showMessageDialog(null, frase + "Total:\nGenêro Masculino: " + generoMasculino + "\nGenêro Feminino: " + generoFeminino);
 	}
 }
