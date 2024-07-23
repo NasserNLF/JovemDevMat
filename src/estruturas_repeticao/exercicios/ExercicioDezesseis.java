@@ -1,10 +1,13 @@
 package estruturas_repeticao.exercicios;
 
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class ExercicioDezesseis {
 	public static void main(String[] args) {
-		int andarAtual = Integer.parseInt(JOptionPane.showInputDialog("Andar Inicial: "));
+		//Escolhe aleatoriamente um número de 0 a 6
+		int andarAtual = new Random().nextInt(6);
 		int proxAndar = 0;
 		boolean fimDoPrograma = false;
 		do {

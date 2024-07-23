@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class ExercicioVinteEquatro {
 	public static void main(String[] args) {
 
-		int funcionarios = 3, servicos = 1, pecas = 0, funMaiorVlr = 0, funMenorVlr = 0;
+		int funcionarios = 2, servicos = 3, pecas = 0, funMaiorVlr = 0, funMenorVlr = 0;
 		double valorTotal = 0, valorFuncionario = 0, valorServico = 0, maiorVlr = 0, menorVlr = 0;
 		String fraseFinal = "Relatório Final!\n";
 
@@ -17,6 +17,7 @@ public class ExercicioVinteEquatro {
 				pecas = Integer.parseInt(JOptionPane.showInputDialog(
 						String.format("Funcionário %d:\nServiço %d:\nQuantidade de Peças?", (i + 1), (j + 1))));
 				for (int p = 0; p < pecas; p++) {
+					// Resposta Letra A
 					valorServico += Double
 							.parseDouble(JOptionPane.showInputDialog(String.format("Valor Peça %d", (p + 1))));
 				}
