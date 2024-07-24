@@ -6,7 +6,7 @@ public class AtividadeOperadores {
 		int b = 2;
 		int c = 3;
 		double x = 2.0;
-		double y = 10.0;
+//		double y = 10.0;
 		double z = -1.0;
 		String nome = "Pedro";
 		String rua = "Pedrinho";

@@ -1,4 +1,4 @@
-package aula_introducao_exercicios;
+package aula_introducao.exercicios;
 
 import javax.swing.JOptionPane;
 

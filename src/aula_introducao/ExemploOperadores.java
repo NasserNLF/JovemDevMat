@@ -73,8 +73,8 @@ public class ExemploOperadores {
 		System.out.println("Exponenciação: " + r14);
 
 		// Exemplos de Operações Relacionais
-		System.out.println("10 é maior que 5? " + (10 == 5));
-		System.out.println("10 é igual que 10? " + (10 == 10));
+//		System.out.println("10 é maior que 5? " + (10 == 5));
+//		System.out.println("10 é igual que 10? " + (10 == 10));
 		System.out.println("10 é diferente de 5? " + (10 != 5));
 		System.out.println("int1 é maior que int3? " + (int1 > int3));
 
