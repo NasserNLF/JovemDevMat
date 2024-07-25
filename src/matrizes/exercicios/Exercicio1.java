@@ -31,10 +31,10 @@ public class Exercicio1 {
 //		notas[2][1] = 7;
 //		notas[3][0] = 7;
 //		notas[3][1] = 5;
-//		notas[4][0] = 2;
-//		notas[4][1] = 1;
-//		notas[5][0] = 3;
-//		notas[5][1] = 1;
+//		notas[4][0] = 10;
+//		notas[4][1] = 10;
+//		notas[5][0] = 10;
+//		notas[5][1] = 10;
 //		
 //		qtdAlunos = 6;
 //		qtdProvas = 2;
@@ -45,9 +45,9 @@ public class Exercicio1 {
 			// Opções
 			switch (op) {
 			case 1:
-				if (qtdProvas == 0) {
+				while(qtdProvas == 0) {
 					qtdProvas = Integer
-							.parseInt(JOptionPane.showInputDialog("Quantidade de provas feita pela turma no período"));
+							.parseInt(JOptionPane.showInputDialog("Quantidade de provas feita pela turma no período (MÍNIMO 1)"));
 
 					// Criação da matriz que armazenará as notas
 					notas = new double[100][qtdProvas];
@@ -211,7 +211,7 @@ public class Exercicio1 {
 				if (qtdAlunos == 0) {
 					JOptionPane.showMessageDialog(null, "Cadastre primeiro os alunos!");
 				} else {
-					relatorio += "REPOROVADOS:\n\n";
+					relatorio += "REPROVADOS:\n\n";
 					// Passando por todas as notas e seleção dos alunos
 					for (int i = 0; i < qtdAlunos; i++) {
 						somaNotas = 0;
