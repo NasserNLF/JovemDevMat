@@ -11,6 +11,7 @@ public class ExercicioDoze {
 					.showInputDialog("Programa de cadastro de alunos\n1) Cadastro de aluno\n2) Relatório final"));
 			switch (op) {
 			case 1:
+				@SuppressWarnings("unused")
 				String nome = JOptionPane.showInputDialog("Digite o nome do aluno");
 				cidade = JOptionPane.showInputDialog("Digite a cidade do aluno").toUpperCase();
 				idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade do aluno"));
@@ -33,8 +34,11 @@ public class ExercicioDoze {
 				JOptionPane.showMessageDialog(null, "Opção Inválida!");
 			}
 		} while (op != 2);
-		JOptionPane.showMessageDialog(null, String.format("a) Quantidade de alunos que moram em TUBARÃO: %d\n"
-				+ "b) Quantidade de alunos que moram em JAGUARUNA: %d\n"
-				+ "c) Quantidade de alunos que possuem menos de 17 anos: %d", tubaronenses, jaguarunenses, menoresDe17));
+		JOptionPane.showMessageDialog(null,
+				String.format(
+						"a) Quantidade de alunos que moram em TUBARÃO: %d\n"
+								+ "b) Quantidade de alunos que moram em JAGUARUNA: %d\n"
+								+ "c) Quantidade de alunos que possuem menos de 17 anos: %d",
+						tubaronenses, jaguarunenses, menoresDe17));
 	}
 }

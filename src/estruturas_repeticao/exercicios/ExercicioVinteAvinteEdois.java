@@ -16,6 +16,7 @@ public class ExercicioVinteAvinteEdois {
 			qtdDepositos = 0;
 			qtdRetiradas = 0;
 			for (int j = 0; j < q; j++) {
+				@SuppressWarnings("unused")
 				String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente " + (j + 1) + " da fila " + (i + 1) + ":");
 				op = Integer.parseInt(JOptionPane.showInputDialog("1) Depósito\n2) Retirada"));
 				// Cálculo da atividade 20
