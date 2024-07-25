@@ -1,26 +1,32 @@
 package aula_introducao;
 
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExemploDatas {
+
 	public static void main(String[] args) {
-//		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		Date dtAtual = new Date();
+		DateFormat df = new SimpleDateFormat("dd/MM/yy"); // Assim surgiu as Datas no java!
+		Date dataAtual = new Date();		
+		System.out.println(dataAtual);
+		System.out.println(df.format(dataAtual));
 		
-//		String dataUsuario = "21/04/2004";
+		String dataNascimento = "28/12/1976";
 		
-//		Date dataUsuarioDate = null;
-//		try {
-//			dataUsuarioDate = df.parse(dataUsuario);
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
+		System.out.println(dataNascimento.substring(0,2));
+		System.out.println(dataNascimento.substring(3,5));
+		System.out.println(dataNascimento.substring(6));
 		
-		Calendar cl = Calendar.getInstance();
-		cl.setTime(dtAtual);
-		cl.add(Calendar.DAY_OF_MONTH, 83);
-	
-		System.out.println(cl.getTime());
+		Date dataNascimentoDate = null;
+		
+		try {
+			dataNascimentoDate = df.parse(dataNascimento);
+		} catch (Exception e) {
+			System.err.println("Data Inválida");
+		}
+		System.out.println(dataNascimentoDate);
+		
 	}
+	
 }

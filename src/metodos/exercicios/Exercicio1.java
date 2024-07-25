@@ -1,10 +1,16 @@
 package metodos.exercicios;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 public class Exercicio1 {
+
+	public static DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
 	public static void main(String[] args) {
 
 		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
@@ -77,6 +83,7 @@ public class Exercicio1 {
 		Aluno a = new Aluno();
 
 		a.nome = JOptionPane.showInputDialog("Nome do aluno: ").toUpperCase();
+		
 		double nota = 0;
 
 		// Cadastro notas
@@ -91,6 +98,7 @@ public class Exercicio1 {
 
 		} while (nota >= 0);
 		alunos.add(a);
+		a.horaCadastro = new Date();
 	}
 
 	// Verificando se ja tem algum aluno cadastrado
@@ -108,10 +116,10 @@ public class Exercicio1 {
 		// Todos
 		if (situacao.equals("")) {
 			for (Aluno a : alunos) {
-				relatorio += String.format("Aluno: %s\nMédia: %.2f\nSituação: %s\n", a.nome, calculaMedia(a.notas),
-						verificaSituação(a));
+				relatorio += String.format("Aluno: %s\nMédia: %.2f\nSituação: %s\nHora do cadastro: %s\n", a.nome,
+						calculaMedia(a.notas), verificaSituação(a), df.format(a.horaCadastro));
 			}
-			return "RELATÓRIO\n\n" + relatorio;
+			return String.format("RELATÓRIO!\nHora da geração: %S\n\n%s", retornaData(), relatorio);
 		} else {
 			// Situação específica
 			for (Aluno a : alunos) {
@@ -120,7 +128,7 @@ public class Exercicio1 {
 				}
 			}
 			if (!relatorio.equals("")) {
-				return "RELATÓRIO\n\n" + situacao + ":\n" + relatorio;
+				return String.format("RELATÓRIO\nHora da geração: %s\n\nSituação: %s\n%s", retornaData(), situacao, relatorio);                 
 			}
 			return "Nenhum aluno encontrado na situação";
 		}
@@ -132,8 +140,8 @@ public class Exercicio1 {
 		String buscaNome = JOptionPane.showInputDialog("Qual nome você gostaria de verificar?").toUpperCase();
 		for (Aluno a : alunos) {
 			if (a.nome.equals(buscaNome)) {
-				return String.format("Aluno encontrado!\nAluno: %s\nMédia: %.2f\nSituação: %s", a.nome,
-						calculaMedia(a.notas), verificaSituação(a));
+				return String.format("Aluno encontrado!\nAluno: %s\nMédia: %.2f\nSituação: %s\nHora do cadastro: %s", a.nome,
+						calculaMedia(a.notas), verificaSituação(a), a.horaCadastro);
 			}
 		}
 		return "Aluno não encontrado";
@@ -142,6 +150,11 @@ public class Exercicio1 {
 	// Media aluno
 	public static double calculaMedia(ArrayList<Double> notas) {
 		double soma = 0;
+		// Verificando se há alguma nota cadastrada
+		if (notas.size() == 0) {
+			return 0;
+		}
+
 		for (Double d : notas) {
 			soma += d;
 		}
@@ -160,6 +173,12 @@ public class Exercicio1 {
 			return "Reprovado";
 		}
 
+	}
+	
+	public static String retornaData() {
+		Date dtAtual = new Date();
+		
+		return df.format(dtAtual);
 	}
 
 }
