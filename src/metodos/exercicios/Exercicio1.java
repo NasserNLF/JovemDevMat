@@ -20,7 +20,7 @@ public class Exercicio1 {
 			case 2:
 				// Listando os alunos
 				if (verificaCad(alunos)) {
-					JOptionPane.showMessageDialog(null, listaAlunos(alunos));
+					JOptionPane.showMessageDialog(null, listaAlunos(alunos, ""));
 				}
 				break;
 			case 3:
@@ -32,19 +32,19 @@ public class Exercicio1 {
 			case 4:
 				// Alunos aprovados
 				if (verificaCad(alunos)) {
-
+					JOptionPane.showMessageDialog(null, listaAlunos(alunos, "Aprovado"));
 				}
 				break;
 			case 5:
 				// Alunos em recuperação
 				if (verificaCad(alunos)) {
-
+					JOptionPane.showMessageDialog(null, listaAlunos(alunos, "Em recuperação"));
 				}
 				break;
 			case 6:
 				// Alunos Reprovados
 				if (verificaCad(alunos)) {
-
+					JOptionPane.showMessageDialog(null, listaAlunos(alunos, "Reprovado"));
 				}
 				break;
 			case 7:
@@ -76,18 +76,20 @@ public class Exercicio1 {
 	public static void cadastraAluno(ArrayList<Aluno> alunos) {
 		Aluno a = new Aluno();
 
-		a.nome = JOptionPane.showInputDialog("Nome do aluno: ");
+		a.nome = JOptionPane.showInputDialog("Nome do aluno: ").toUpperCase();
 		double nota = 0;
 
 		// Cadastro notas
 		do {
-			nota = Double.parseDouble(JOptionPane.showInputDialog("Nota: (-1 para parar)"));
+			nota = Double.parseDouble(JOptionPane.showInputDialog("Nota: (Qualquer nota abaixo de 0 para parar)"));
 
-			if (nota != -1) {
+			if (nota > 10) {
+				JOptionPane.showMessageDialog(null, "A nota será desconsiderada!\nAs notas vão de 0 a 10");
+			} else if (nota >= 0) {
 				a.notas.add(nota);
 			}
 
-		} while (nota != -1);
+		} while (nota >= 0);
 		alunos.add(a);
 	}
 
@@ -98,6 +100,43 @@ public class Exercicio1 {
 			return false;
 		}
 		return true;
+	}
+
+	// Listando os alunos
+	public static String listaAlunos(ArrayList<Aluno> alunos, String situacao) {
+		String relatorio = "";
+		// Todos
+		if (situacao.equals("")) {
+			for (Aluno a : alunos) {
+				relatorio += String.format("Aluno: %s\nMédia: %.2f\nSituação: %s\n", a.nome, calculaMedia(a.notas),
+						verificaSituação(a));
+			}
+			return "RELATÓRIO\n\n" + relatorio;
+		} else {
+			// Situação específica
+			for (Aluno a : alunos) {
+				if (verificaSituação(a).equals(situacao)) {
+					relatorio += String.format("Aluno: %s\nMédia: %.2f\n", a.nome, calculaMedia(a.notas));
+				}
+			}
+			if (!relatorio.equals("")) {
+				return "RELATÓRIO\n\n" + situacao + ":\n" + relatorio;
+			}
+			return "Nenhum aluno encontrado na situação";
+		}
+
+	}
+
+	// Buscando aluno
+	public static String buscaAluno(ArrayList<Aluno> alunos) {
+		String buscaNome = JOptionPane.showInputDialog("Qual nome você gostaria de verificar?").toUpperCase();
+		for (Aluno a : alunos) {
+			if (a.nome.equals(buscaNome)) {
+				return String.format("Aluno encontrado!\nAluno: %s\nMédia: %.2f\nSituação: %s", a.nome,
+						calculaMedia(a.notas), verificaSituação(a));
+			}
+		}
+		return "Aluno não encontrado";
 	}
 
 	// Media aluno
@@ -121,26 +160,6 @@ public class Exercicio1 {
 			return "Reprovado";
 		}
 
-	}
-
-	public static String listaAlunos(ArrayList<Aluno> alunos) {
-		String relatorio = "RELATÓRIO\n\n";
-		for (Aluno a : alunos) {
-			relatorio += a.nome + "\n";
-			relatorio += "Situação: " + verificaSituação(a);
-		}
-		return relatorio;
-	}
-	
-	//Buscando aluno
-	public static String buscaAluno(ArrayList<Aluno> alunos) {
-		String buscaNome = JOptionPane.showInputDialog("Qual nome você gostaria de verificar?");
-		for (Aluno a : alunos) {
-			if (a.nome.equals(buscaNome)) {
-				return "Aluno encontrado!\n" + a.nome + "\nSituação: " + verificaSituação(a);
-			}
-		}
-		return "Aluno não encontrado";
 	}
 
 }
