@@ -2,7 +2,7 @@ package matrizes.exercicios;
 
 import javax.swing.JOptionPane;
 
-public class ExercicioUm {
+public class Exercicio1 {
 	public static void main(String[] args) {
 		int op = 0, qtdAlunos = 0, qtdProvas = 0;
 		double somaNotas = 0;
@@ -16,31 +16,30 @@ public class ExercicioUm {
 		double[][] notas = new double[10][10];
 
 		// TESTES
-		nomes[0] = "NASSER";
-		nomes[1] = "LETICIA";
-		nomes[2] = "JOSÉ";
-		nomes[3] = "MARIA";
-		nomes[4] = "LUCAS";
-		nomes[5] = "MATHEUS";
-
-		notas[0][0] = 10;
-		notas[0][1] = 9;
-		notas[1][0] = 10;
-		notas[1][1] = 8;
-		notas[2][0] = 5;
-		notas[2][1] = 7;
-		notas[3][0] = 7;
-		notas[3][1] = 5;
-		notas[4][0] = 2;
-		notas[4][1] = 1;
-		notas[5][0] = 3;
-		notas[5][1] = 1;
-		
-		qtdAlunos = 6;
-		qtdProvas = 2;
+//		nomes[0] = "NASSER";
+//		nomes[1] = "ANA";
+//		nomes[2] = "JOSÉ";
+//		nomes[3] = "MARIA";
+//		nomes[4] = "LUCAS";
+//		nomes[5] = "MATHEUS";
+//
+//		notas[0][0] = 10;
+//		notas[0][1] = 9;
+//		notas[1][0] = 10;
+//		notas[1][1] = 8;
+//		notas[2][0] = 5;
+//		notas[2][1] = 7;
+//		notas[3][0] = 7;
+//		notas[3][1] = 5;
+//		notas[4][0] = 2;
+//		notas[4][1] = 1;
+//		notas[5][0] = 3;
+//		notas[5][1] = 1;
+//		
+//		qtdAlunos = 6;
+//		qtdProvas = 2;
 
 		do {
-			String fraseAux = "";
 			String relatorio = "RELATÓRIO:\n\n";
 			op = Integer.parseInt(JOptionPane.showInputDialog(menu));
 			// Opções
@@ -104,25 +103,21 @@ public class ExercicioUm {
 					// Listagem de todos os alunos
 					for (int i = 0; i < qtdAlunos; i++) {
 						somaNotas = 0;
-						fraseAux = "\n";
-						fraseAux += "Aluno: " + nomes[i];
+						relatorio+= "\nAluno: " + nomes[i];
 						for (int j = 0; j < notas[i].length; j++) {
 							somaNotas += notas[i][j];
 						}
 						// Média
-						fraseAux += String.format("\nMédia: %.2f", (somaNotas / qtdProvas));
+						relatorio += String.format("\nMédia: %.2f", (somaNotas / qtdProvas));
 
 						// Situação
 						if (somaNotas / (double) qtdProvas >= 7) {
-							fraseAux += "\nSituação: Aprovado";
+							relatorio += "\nSituação: Aprovado\n";
 						} else if (somaNotas / (double) qtdProvas < 7 && somaNotas / qtdProvas > 3) {
-							fraseAux += "\nSituação: Em recuperação";
+							relatorio += "\nSituação: Em recuperação\n";
 						} else {
-							fraseAux += "\nSituação: Reprovado";
-						}
-
-						// Montagem do relatório
-						relatorio += fraseAux;
+							relatorio += "\nSituação: Reprovado\n";
+						}				
 					}
 					// Mostrando o relatório
 					JOptionPane.showMessageDialog(null, relatorio);

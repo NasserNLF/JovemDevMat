@@ -8,7 +8,7 @@ public class ExercicioVinteAvinteEdois {
 		int q = 2, n = 2, op = 0, qtdDepositos = 0, qtdRetiradas = 0, numeroFilaComMaisDepositos = 0,
 				numeroFilaComMenosRetiradas = 0, varAuxDep = 0, varAuxRet = 0;
 		double depositos = 0, retiradas = 0;
-		String nomeCliente = "";
+		//String nomeCliente = "";
 		String relatorioQuantidade = "Exercício 21\nRelatório final!\n\n";
 
 		for (int i = 0; i < n; i++) {
@@ -16,7 +16,7 @@ public class ExercicioVinteAvinteEdois {
 			qtdDepositos = 0;
 			qtdRetiradas = 0;
 			for (int j = 0; j < q; j++) {
-				nomeCliente = JOptionPane.showInputDialog("Nome do Cliente " + (j + 1) + " da fila " + (i + 1) + ":");
+				String nomeCliente = JOptionPane.showInputDialog("Nome do Cliente " + (j + 1) + " da fila " + (i + 1) + ":");
 				op = Integer.parseInt(JOptionPane.showInputDialog("1) Depósito\n2) Retirada"));
 				// Cálculo da atividade 20
 				switch (op) {

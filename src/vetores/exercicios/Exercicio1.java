@@ -1,8 +1,5 @@
 package vetores.exercicios;
 
-import java.lang.classfile.Opcode;
-import java.util.Iterator;
-
 import javax.swing.JOptionPane;
 
 public class Exercicio1 {
