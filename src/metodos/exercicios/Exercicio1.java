@@ -83,7 +83,7 @@ public class Exercicio1 {
 		Aluno a = new Aluno();
 
 		a.nome = JOptionPane.showInputDialog("Nome do aluno: ").toUpperCase();
-		
+
 		double nota = 0;
 
 		// Cadastro notas
@@ -128,7 +128,8 @@ public class Exercicio1 {
 				}
 			}
 			if (!relatorio.equals("")) {
-				return String.format("RELATÓRIO\nHora da geração: %s\n\nSituação: %s\n%s", retornaData(), situacao, relatorio);                 
+				return String.format("RELATÓRIO\nHora da geração: %s\n\nSituação: %s\n%s", retornaData(), situacao,
+						relatorio);
 			}
 			return "Nenhum aluno encontrado na situação";
 		}
@@ -140,8 +141,8 @@ public class Exercicio1 {
 		String buscaNome = JOptionPane.showInputDialog("Qual nome você gostaria de verificar?").toUpperCase();
 		for (Aluno a : alunos) {
 			if (a.nome.equals(buscaNome)) {
-				return String.format("Aluno encontrado!\nAluno: %s\nMédia: %.2f\nSituação: %s\nHora do cadastro: %s", a.nome,
-						calculaMedia(a.notas), verificaSituação(a), a.horaCadastro);
+				return String.format("Aluno encontrado!\nAluno: %s\nMédia: %.2f\nSituação: %s\nHora do cadastro: %s",
+						a.nome, calculaMedia(a.notas), verificaSituação(a), a.horaCadastro);
 			}
 		}
 		return "Aluno não encontrado";
@@ -174,10 +175,11 @@ public class Exercicio1 {
 		}
 
 	}
-	
+
+	// Pega a data atual
 	public static String retornaData() {
 		Date dtAtual = new Date();
-		
+
 		return df.format(dtAtual);
 	}
 
